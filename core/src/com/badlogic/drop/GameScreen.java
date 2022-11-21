@@ -172,3 +172,13 @@ public class GameScreen implements Screen {
     }
 
 }
+
+
+//    Texture hikeTexture = new Texture(Gdx.files.internal("hike_btn.jpg"));
+//    Texture hikeTexturePressed = new Texture(Gdx.files.internal("hike_btn_pressed.jpg"));
+//hikeButton = new ImageButton(
+//        new TextureRegionDrawable(new TextureRegion(hikeTexture)),
+//        new TextureRegionDrawable(new TextureRegion(hikeTexturePressed))
+//        );
+//        hikeButton.setPosition(60, 300);  //hikeButton is an ImageButton
+//        stage.addActor(hikeButton);
