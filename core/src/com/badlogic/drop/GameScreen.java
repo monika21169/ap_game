@@ -150,19 +150,15 @@ public class GameScreen implements Screen {
         // when the screen is shown
         rainMusic.play();
     }
-
     @Override
     public void hide() {
     }
-
     @Override
     public void pause() {
     }
-
     @Override
     public void resume() {
     }
-
     @Override
     public void dispose() {
         dropImage.dispose();
@@ -170,10 +166,7 @@ public class GameScreen implements Screen {
         dropSound.dispose();
         rainMusic.dispose();
     }
-
 }
-
-
 //    Texture hikeTexture = new Texture(Gdx.files.internal("hike_btn.jpg"));
 //    Texture hikeTexturePressed = new Texture(Gdx.files.internal("hike_btn_pressed.jpg"));
 //hikeButton = new ImageButton(

@@ -7,9 +7,16 @@ import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import org.w3c.dom.ls.LSOutput;
 
 public class gamescreen4 implements Screen {
+    private Stage stage;
     final Drop game;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
@@ -22,31 +29,46 @@ public class gamescreen4 implements Screen {
     Texture tank1;
     Texture tank2;
     Texture settings;
-
-
+    private Viewport gameport;
+    private Image newb;
     public gamescreen4(final Drop game) {
+//        System.out.println("qawsedrf");
         this.game = game;
         coins = new Texture(Gdx.files.internal("Coins.png"));
-        exit = new Texture(Gdx.files.internal("exit.png"));
-        continuebutton = new Texture(Gdx.files.internal("continue.png"));
-        newbutton = new Texture(Gdx.files.internal("new.png"));
+        exit = new Texture(Gdx.files.internal("Exit.png"));
+        continuebutton = new Texture(Gdx.files.internal("Continue.png"));
+        newbutton = new Texture(Gdx.files.internal("Newgame.png"));
+        newb = new Image(newbutton);
         shop = new Texture(Gdx.files.internal("shop.png"));
         tank1 = new Texture(Gdx.files.internal("tank.png"));
         tank2 = new Texture(Gdx.files.internal("tank2.png"));
         settings = new Texture(Gdx.files.internal("Settings.png"));
-        backgroundImage = new Texture(Gdx.files.internal("Loading1.png"));
+        backgroundImage = new Texture(Gdx.files.internal("mainmenu.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
+
         camera.setToOrtho(false, 800, 480);
+        stage=new Stage(gameport);
+        stage.addActor(newb);
+
     }
     @Override
     public void show() {
-
+        newb.addListener(new ClickListner() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                System.out.println("qsdvbnlkjhgfdsrtj");
+            }
+        });
     }
+
 
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 0);
+
+
+
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
@@ -55,10 +77,10 @@ public class gamescreen4 implements Screen {
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
         game.batch.draw(settings,750,410,45,45);
         game.batch.draw(coins,700,415,35,35);
-        game.batch.draw(newbutton,250,310,305,55);
-        game.batch.draw(continuebutton,250,210,305,55);
-        game.batch.draw(exit,250,110,185,55);
-        game.batch.draw(shop,250,20,185,55);
+        game.batch.draw(newbutton,30,390,305,55);
+        game.batch.draw(continuebutton,30,320,305,55);
+        game.batch.draw(exit,65,250,185,55);
+        game.batch.draw(shop,50,20,185,55);
 
         game.batch.end();
 
@@ -72,10 +94,35 @@ public class gamescreen4 implements Screen {
 //            dispose();
 //        }
 //
+        Stage stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+        Image newbutton = new Image(new Texture("Newgame.png"));
+//        System.out.println("123456");
+        newbutton.setSize(125, 125);
+        newbutton.setPosition(0,0);
+        System.out.println("hey586587");
+        stage.addActor(newbutton);
+        System.out.println("8745");
+        newbutton.addListener(new ClickListener() {
+
+            public void clicked(InputEvent event, float x, float y) {
+//                game.setScreen("Loading2.png");
+                game.setScreen("Loading2.png");
+                System.out.println("qwerty");
+                Gdx.app.debug("DEBUG", "clicked");
+
+            }});
+
+
         if (isPressed) {
+            System.out.println("efvfr");
             game.setScreen(new gamescreen3(game));
-            dispose();
+//            dispose();
         }
+
+
+
+
     }
 
     @Override

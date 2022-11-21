@@ -25,4 +25,11 @@ public class Drop extends Game {
 		font.dispose();
 	}
 
+    public void setScreen() {
+
+    }
+
+	public void setScreen(String s) {
+		this.setScreen(new MainMenu(this));
+	}
 }

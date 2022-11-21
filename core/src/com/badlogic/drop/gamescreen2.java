@@ -17,6 +17,7 @@ public class gamescreen2 implements Screen {
     OrthographicCamera camera;
     public gamescreen2(final Drop game) {
         this.game = game;
+//        System.out.println("gamescreen2");
         backgroundImage = new Texture(Gdx.files.internal("Screen2.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
@@ -36,13 +37,13 @@ public class gamescreen2 implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
-        game.font.draw(game.batch, "Welcome to Tank!", 300, 240);
-        game.font.draw(game.batch, "Click anywhere to begin!", 300, 140);
+        game.font.draw(game.batch, "", 300, 240);
+        game.font.draw(game.batch, "", 300, 140);
 
         game.batch.end();
         if (Gdx.input.justTouched()) {
             game.setScreen(new gamescreen3(game));
-            dispose();
+//            dispose();
         }
 //        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
 //        if (isPressed) {

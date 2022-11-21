@@ -5,6 +5,10 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 public class MainMenu implements Screen {
 
@@ -34,19 +38,38 @@ public class MainMenu implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.batch.draw(backgroundTexture, 0,0, 800, 480);
-        game.font.draw(game.batch, "Welcome to Tank!", 300, 240);
-        game.font.draw(game.batch, "Click anywhere to begin!", 300, 140);
+        game.batch.draw(backgroundTexture, 0, 0, 800, 480);
+        game.font.draw(game.batch, "", 300, 240);
+        game.font.draw(game.batch, "", 300, 140);
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new gamescreen2(game));
-            dispose();
+//            dispose();
         }
 //        if (Gdx.input.isTouched()) {
 //            game.setScreen(new gamescreen3(game));
 //            dispose();
 //        }
+        Stage stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+        Image bagImage = new Image(new Texture("Newgame.png"));
+        bagImage.setSize(125, 125);
+        System.out.println("hey");
+        stage.addActor(bagImage);
+        bagImage.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                System.out.println("qwerty");
+                Gdx.app.debug("DEBUG", "clicked");
+
+            }
+//        @Override
+//        public void render(float delta) {
+//            stage.act(delta);
+//            stage.draw();
+        });
+
+
     }
 
     @Override
