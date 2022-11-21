@@ -1,6 +1,7 @@
 package com.badlogic.drop;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -35,11 +36,16 @@ public class gamescreen3 implements Screen {
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
 
         game.batch.end();
-//
-//        if (Gdx.input.isTouched()) {
-//            game.setScreen(new gamescreen3(game));
+//        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
+//        if (isPressed) {
+//            game.setScreen(new gamescreen4(game));
 //            dispose();
 //        }
+//
+        if (Gdx.input.justTouched()) {
+            game.setScreen(new gamescreen4(game));
+            dispose();
+        }
     }
 
     @Override

@@ -8,16 +8,29 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.security.Key;
-
-public class gamescreen2 implements Screen {
+public class gamescreen4 implements Screen {
     final Drop game;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
-    public gamescreen2(final Drop game) {
+    Texture coins;
+    Texture exit;
+    Texture newbutton;
+    Texture shop;
+    Texture tank1;
+    Texture tank2;
+    Texture settings;
+
+
+    public gamescreen4(final Drop game) {
         this.game = game;
-        backgroundImage = new Texture(Gdx.files.internal("Screen2.png"));
+        coins = new Texture(Gdx.files.internal("Coins.png"));
+        newbutton = new Texture(Gdx.files.internal("new.png"));
+        shop = new Texture(Gdx.files.internal("shop.png"));
+        tank1 = new Texture(Gdx.files.internal("tank.png"));
+        tank2 = new Texture(Gdx.files.internal("tank2.png"));
+        settings = new Texture(Gdx.files.internal("Settings.png"));
+        backgroundImage = new Texture(Gdx.files.internal("Loading1.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
@@ -36,20 +49,18 @@ public class gamescreen2 implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
-        game.font.draw(game.batch, "Welcome to Tank!", 300, 240);
-        game.font.draw(game.batch, "Click anywhere to begin!", 300, 140);
 
         game.batch.end();
-        if (Gdx.input.justTouched()) {
-            game.setScreen(new gamescreen3(game));
-            dispose();
-        }
 //        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
 //        if (isPressed) {
 //            game.setScreen(new gamescreen3(game));
 //            dispose();
 //        }
-
+//
+//        if (Gdx.input.isTouched()) {
+//            game.setScreen(new gamescreen3(game));
+//            dispose();
+//        }
     }
 
     @Override
