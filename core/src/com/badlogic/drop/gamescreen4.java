@@ -3,6 +3,7 @@ package com.badlogic.drop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -60,16 +61,21 @@ public class gamescreen4 implements Screen {
         game.batch.draw(shop,250,20,185,55);
 
         game.batch.end();
-//        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
+
+        boolean isPressed = Gdx.input.isKeyJustPressed(Input.Keys.E);
+        //boolean isPressed=Gdx.input.isKeyJustPressed();
+
+
+
 //        if (isPressed) {
 //            game.setScreen(new gamescreen3(game));
 //            dispose();
 //        }
 //
-//        if (Gdx.input.isTouched()) {
-//            game.setScreen(new gamescreen3(game));
-//            dispose();
-//        }
+        if (isPressed) {
+            game.setScreen(new gamescreen3(game));
+            dispose();
+        }
     }
 
     @Override
