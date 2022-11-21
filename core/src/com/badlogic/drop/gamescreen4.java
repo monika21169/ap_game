@@ -15,6 +15,7 @@ public class gamescreen4 implements Screen {
     OrthographicCamera camera;
     Texture coins;
     Texture exit;
+    Texture continuebutton;
     Texture newbutton;
     Texture shop;
     Texture tank1;
@@ -25,6 +26,8 @@ public class gamescreen4 implements Screen {
     public gamescreen4(final Drop game) {
         this.game = game;
         coins = new Texture(Gdx.files.internal("Coins.png"));
+        exit = new Texture(Gdx.files.internal("exit.png"));
+        continuebutton = new Texture(Gdx.files.internal("continue.png"));
         newbutton = new Texture(Gdx.files.internal("new.png"));
         shop = new Texture(Gdx.files.internal("shop.png"));
         tank1 = new Texture(Gdx.files.internal("tank.png"));
@@ -49,6 +52,12 @@ public class gamescreen4 implements Screen {
 
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
+        game.batch.draw(settings,750,410,45,45);
+        game.batch.draw(coins,700,415,35,35);
+        game.batch.draw(newbutton,250,310,305,55);
+        game.batch.draw(continuebutton,250,210,305,55);
+        game.batch.draw(exit,250,110,185,55);
+        game.batch.draw(shop,250,20,185,55);
 
         game.batch.end();
 //        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
