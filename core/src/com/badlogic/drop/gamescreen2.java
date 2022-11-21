@@ -1,11 +1,14 @@
 package com.badlogic.drop;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.security.Key;
 
 public class gamescreen2 implements Screen {
     final Drop game;
@@ -37,7 +40,8 @@ public class gamescreen2 implements Screen {
         game.font.draw(game.batch, "Click anywhere to begin!", 300, 140);
 
         game.batch.end();
-        if (Gdx.input.justTouched()) {
+        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
+        if (isPressed) {
             game.setScreen(new gamescreen3(game));
             dispose();
         }
