@@ -104,7 +104,7 @@ public class gamescreen4 implements Screen {
         stage.addActor(newbutton);
         System.out.println("8745");
         newbutton.addListener(new ClickListener() {
-        tank1
+        
             public void clicked(InputEvent event, float x, float y) {
 //                game.setScreen("Loading2.png");
                 game.setScreen("Loading2.png");
