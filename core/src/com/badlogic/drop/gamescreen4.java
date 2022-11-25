@@ -36,8 +36,8 @@ public class gamescreen4 implements Screen {
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
-//        trans = new Texture(Gdx.files.internal("trans.png"));
-//        game.batch.draw(trans,750,410,45,45);
+        trans = new Texture(Gdx.files.internal("trans.png"));
+        game.batch.draw(trans,750,410,45,45);
     }
     @Override
     public void show() {

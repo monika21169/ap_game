@@ -18,6 +18,7 @@ public class gamescreen5 implements Screen {
     OrthographicCamera camera;
     public gamescreen5(final Drop game) {
         this.game = game;
+        tank3 = new Texture(Gdx.files.internal("tank3.png"));
         backgroundImage = new Texture(Gdx.files.internal("menu2.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
