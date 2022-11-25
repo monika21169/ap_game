@@ -20,11 +20,9 @@ public class gamescreen4 implements Screen {
     Texture continuebutton;
     Texture newbutton;
     Texture shop;
-//    float y;
-//    float x;
+//    float x,y;
 //    Texture trans;
-//    Texture tank1;
-//    Texture tank2;
+
     Texture settings;
     public gamescreen4(final Drop game) {
         this.game = game;
@@ -39,9 +37,7 @@ public class gamescreen4 implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 //        trans = new Texture(Gdx.files.internal("trans.png"));
-//        tank1 = new Texture(Gdx.files.internal("tank.png"));
 //        game.batch.draw(trans,750,410,45,45);
-//        tank2 = new Texture(Gdx.files.internal("tank2.png"));
     }
     @Override
     public void show() {
@@ -61,7 +57,7 @@ public class gamescreen4 implements Screen {
         game.batch.draw(exit,65,250,185,55);
         game.batch.draw(shop,50,20,185,55);
         game.batch.end();
-        if (Gdx.input.justTouched()) {
+        if (Gdx.input.isTouched()) {
             game.setScreen(new gamescreen5(game));
         }
     }

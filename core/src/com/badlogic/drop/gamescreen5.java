@@ -11,6 +11,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class gamescreen5 implements Screen {
     final Drop game;
     float x,y;
+    Texture tank1;
+    Texture tank2;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
@@ -20,6 +22,9 @@ public class gamescreen5 implements Screen {
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
+        tank1 = new Texture(Gdx.files.internal("tank.png"));
+        tank2 = new Texture(Gdx.files.internal("tank2.png"));
+
     }
     @Override
     public void show() {
@@ -50,7 +55,6 @@ public class gamescreen5 implements Screen {
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             x=x+4;
         }
-
     }
     @Override
     public void resize(int width, int height) {
