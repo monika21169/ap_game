@@ -87,17 +87,17 @@ public class gamescreen4 implements Screen {
 
     }
 
-    protected void handleInput(){
-        if(Gdx.input.justTouched()){
-            if(Gdx.input.getX()<93 && Gdx.input.getX()>49 && Gdx.input.getY()>675-640 && Gdx.input.getY()<675-640){
-                Circle gsm;
-                gsm.set
-                        (new settings(gsm));
-            dispose();}
-            update(float dt){
-Input();    }
-        }
-    }
+//    protected void handleInput(){
+//        if(Gdx.input.justTouched()){
+//            if(Gdx.input.getX()<93 && Gdx.input.getX()>49 && Gdx.input.getY()>675-640 && Gdx.input.getY()<675-640){
+//                Circle gsm;
+//                gsm.set
+//                        (new settings(gsm));
+//            dispose();}
+//            update(float dt){
+//Input();    }
+//        }
+//    }
 
 
 
