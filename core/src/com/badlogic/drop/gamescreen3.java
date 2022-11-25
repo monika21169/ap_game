@@ -28,26 +28,16 @@ public class gamescreen3 implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 0);
-
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
-
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
-
         game.batch.end();
-//        boolean isPressed = Gdx.input.isKeyPressed(Input.Keys.A);
-//        if (isPressed) {
-//            game.setScreen(new gamescreen4(game));
-//            dispose();
-//        }
-//
         if (Gdx.input.justTouched()) {
             game.setScreen(new gamescreen4(game));
             dispose();
         }
     }
-
     @Override
     public void resize(int width, int height) {
 
