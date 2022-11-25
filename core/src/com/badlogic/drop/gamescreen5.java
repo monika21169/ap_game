@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class gamescreen5 implements Screen {
     final Drop game;
+    float x,y;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
@@ -37,6 +38,19 @@ public class gamescreen5 implements Screen {
             game.setScreen(new gamescreen5(game));
             dispose();
         }
+        if(Gdx.input.isKeyPressed(Input.Keys.UP)){
+            y=y+4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            y=y-4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            x=x-4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            x=x+4;
+        }
+
     }
     @Override
     public void resize(int width, int height) {

@@ -12,6 +12,7 @@ import java.security.Key;
 
 public class gamescreen2 implements Screen {
     final Drop game;
+    float x,y;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
@@ -42,6 +43,20 @@ public class gamescreen2 implements Screen {
         game.batch.end();
         if (Gdx.input.justTouched()) {
             game.setScreen(new gamescreen3(game));
+        if(Gdx.input.isKeyPressed(Input.Keys.UP)){
+            y=y+4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            y=y-4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            x=x-4;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            x=x+4;
+            }
+
+
         }
     }
 
