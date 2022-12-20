@@ -8,15 +8,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class gamescreen3 implements Screen {
+public class screen2 implements Screen {
     final Drop game;
     float x,y;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
-    public gamescreen3(final Drop game) {
+    public screen2(final Drop game) {
         this.game = game;
-        backgroundImage = new Texture(Gdx.files.internal("Screen3.png"));
+        backgroundImage = new Texture(Gdx.files.internal("Screen2.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
@@ -29,15 +29,18 @@ public class gamescreen3 implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 0);
+
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
+
         game.batch.begin();
         game.batch.draw(backgroundTexture, 0,0, 800, 480);
+        game.font.draw(game.batch, "", 300, 240);
+        game.font.draw(game.batch, "", 300, 140);
+
         game.batch.end();
         if (Gdx.input.justTouched()) {
-            game.setScreen(new gamescreen4(game));
-            dispose();
-        }
+            game.setScreen(new screen3(game));
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
             y=y+4;
         }
@@ -49,8 +52,12 @@ public class gamescreen3 implements Screen {
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             x=x+4;
+            }
+
+
         }
     }
+
     @Override
     public void resize(int width, int height) {
 

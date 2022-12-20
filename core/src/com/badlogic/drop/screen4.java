@@ -1,7 +1,6 @@
 package com.badlogic.drop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -9,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 
-public class gamescreen4 implements Screen {
+public class screen4 implements Screen {
     private Stage stage;
     final Drop game;
     private Texture backgroundImage;
@@ -24,7 +23,7 @@ public class gamescreen4 implements Screen {
 //    Texture trans;
 
     Texture settings;
-    public gamescreen4(final Drop game) {
+    public screen4(final Drop game) {
         this.game = game;
         coins = new Texture(Gdx.files.internal("Coins.png"));
         exit = new Texture(Gdx.files.internal("Exit.png"));
@@ -36,8 +35,8 @@ public class gamescreen4 implements Screen {
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
-        trans = new Texture(Gdx.files.internal("trans.png"));
-        game.batch.draw(trans,750,410,45,45);
+//        trans = new Texture(Gdx.files.internal("trans.png"));
+//        game.batch.draw(trans,750,410,45,45);
     }
     @Override
     public void show() {
@@ -58,7 +57,7 @@ public class gamescreen4 implements Screen {
         game.batch.draw(shop,50,20,185,55);
         game.batch.end();
         if (Gdx.input.isTouched()) {
-            game.setScreen(new gamescreen5(game));
+            game.setScreen(new screen5(game));
         }
     }
 
