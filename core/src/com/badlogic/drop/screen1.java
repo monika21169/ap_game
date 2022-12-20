@@ -14,6 +14,8 @@ public class screen1 implements Screen {
     float x,y;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
+    public static final int V_WIDTH =480;
+    public static final int v_HEIGHT =208;
     OrthographicCamera camera;
     public screen1(final Drop game) {
         this.game = game;
