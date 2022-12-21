@@ -13,12 +13,13 @@ public class screen5 implements Screen {
     float x,y;
     Texture tank1;
     Texture tank2;
+    Texture tank3;
     private Texture backgroundImage;
     private TextureRegion backgroundTexture;
     OrthographicCamera camera;
     public screen5(final Drop game) {
         this.game = game;
-//        tank3 = new Texture(Gdx.files.internal("tank3.png"));
+        tank3 = new Texture(Gdx.files.internal("tank3.png"));
         backgroundImage = new Texture(Gdx.files.internal("menu2.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
@@ -42,7 +43,6 @@ public class screen5 implements Screen {
         game.batch.end();
         if (Gdx.input.justTouched()) {
             game.setScreen(new screen5(game));
-            dispose();
         }
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
             y=y+4;

@@ -6,8 +6,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 public class screen1 implements Screen {
     final Drop game;
     SpriteBatch batch;
@@ -20,30 +26,42 @@ public class screen1 implements Screen {
     private Skin skin;
     private Stage stage;
 
+    Texture progress_bar, knob_progress_bar;
+    ProgressBar bar;
 
-    @Override
-    public void create () {
-        skin = new Skin(Gdx.files.internal("metalui/metal-ui.json"));
+    float stateTime = 0;
+    float count = 1f;
+    boolean isCount = true;
 
-        stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
+    Texture slider_background, slider_knob;
+    Slider slider;
 
-        //Begin layout
-        TextButton textButton = new TextButton("Hello", skin);
-        stage.addActor(textButton);
-    }
+
     OrthographicCamera camera;
     public screen1(final Drop game) {
         this.game = game;
 
         ProgressBar progressBar = new ProgressBar(0, 100, .1f, false, skin);
-        root.add(progressBar);
+//        root.add(progressBar);
         progressBar.setAnimateDuration(.25f);
         backgroundImage = new Texture(Gdx.files.internal("Screen1.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
     }
+
+    public void create () {
+        skin = new Skin(Gdx.files.internal("metalui/metal-ui.json"));
+
+        stage = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stage);
+
+        TextButton textButton = new TextButton("Hello", skin);
+        stage.addActor(textButton);
+    }
+
+
+
 
     @Override
     public void show() {
@@ -76,9 +94,9 @@ public class screen1 implements Screen {
 //        }
 
 
-        if (Gdx.input.isTouched()) {
-            game.setScreen(new screen2(game));
-        }
+//        if (Gdx.input.isTouched()) {
+//            game.setScreen(new screen2(game));
+//        }
     }
 
     @Override

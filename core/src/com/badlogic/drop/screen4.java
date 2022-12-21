@@ -56,9 +56,9 @@ public class screen4 implements Screen {
         game.batch.draw(exit,65,250,185,55);
         game.batch.draw(shop,50,20,185,55);
         game.batch.end();
-        if (Gdx.input.isTouched()) {
-            game.setScreen(new screen5(game));
-        }
+//        if (Gdx.input.isTouched()) {
+//            game.setScreen(new screen5(game));
+//        }
     }
 
     @Override
