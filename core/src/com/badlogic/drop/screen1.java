@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.utils.ScreenUtils;
 public class screen1 implements Screen {
     final Drop game;
@@ -16,9 +17,28 @@ public class screen1 implements Screen {
     private TextureRegion backgroundTexture;
     public static final int V_WIDTH =480;
     public static final int v_HEIGHT =208;
+    private Skin skin;
+    private Stage stage;
+
+
+    @Override
+    public void create () {
+        skin = new Skin(Gdx.files.internal("metalui/metal-ui.json"));
+
+        stage = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stage);
+
+        //Begin layout
+        TextButton textButton = new TextButton("Hello", skin);
+        stage.addActor(textButton);
+    }
     OrthographicCamera camera;
     public screen1(final Drop game) {
         this.game = game;
+
+        ProgressBar progressBar = new ProgressBar(0, 100, .1f, false, skin);
+        root.add(progressBar);
+        progressBar.setAnimateDuration(.25f);
         backgroundImage = new Texture(Gdx.files.internal("Screen1.png"));
         backgroundTexture = new TextureRegion(backgroundImage, 0, 0, 800, 480);
         camera = new OrthographicCamera();
