@@ -25,7 +25,6 @@ public class score {
         table.top();
 
 
+
     }
-
-
 }
